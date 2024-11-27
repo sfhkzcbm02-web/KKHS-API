@@ -26,7 +26,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<ApidataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefualtDatabase")));
+//builder.Services.AddDbContext<ApidataContext>(options =>
+//options.UseSqlServer(builder.Configuration.GetValue<string>("DATABASE_CONNECTION_STRING"))
+//);
+
 //相關服務DI註冊
 builder.Services.AddScoped<KKHS.Service.UserApp.IUserService, UserService>();
 builder.Services.AddScoped<ILayoutService, LayoutService>();
